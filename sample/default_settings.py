@@ -1,3 +1,1 @@
-EXT = (
-    "pae.aws",
-)
+EXT = ("pae.aws",)

@@ -9,6 +9,7 @@ class S3Loader(Loader):
     """
     Load S3
     """
+
     scheme = "s3"
 
     @classmethod
