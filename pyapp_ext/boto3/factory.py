@@ -1,5 +1,7 @@
 import botocore
 
+from pyapp.conf.helpers import ThreadLocalNamedSingletonFactory
+
 
 class SessionFactory(ThreadLocalNamedSingletonFactory):
     """
