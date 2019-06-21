@@ -1,6 +1,8 @@
-import boto3
+from boto3 import Session
 
 from pyapp.conf.helpers import ThreadLocalNamedSingletonFactory
+
+__all__ = ("Session", "get_session", "session_factory", "client", "resource")
 
 
 class SessionFactory(ThreadLocalNamedSingletonFactory[boto3.Session]):
@@ -16,9 +18,9 @@ class SessionFactory(ThreadLocalNamedSingletonFactory[boto3.Session]):
         "profile_name": None,
     }
 
-    def create(self, name: str = None) -> boto3.Session:
+    def create(self, name: str = None) -> Session:
         config = self.get(name)
-        return boto3.Session(**config)
+        return Session(**config)
 
 
 session_factory = SessionFactory("AWS")

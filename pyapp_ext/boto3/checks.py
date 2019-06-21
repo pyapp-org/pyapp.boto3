@@ -1,5 +1,5 @@
 from pyapp.checks.registry import register
 
-# from .factory import client_factory
+from .factory import session_factory
 
-# register(client_factory)
+register(session_factory)
