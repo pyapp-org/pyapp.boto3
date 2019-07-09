@@ -11,5 +11,6 @@ class Extension:
     """
     pyApp Boto 3 Extension
     """
+
     default_settings = ".default_settings"
     checks = ".checks"
