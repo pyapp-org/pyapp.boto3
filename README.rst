@@ -27,8 +27,6 @@ Install using *pipenv*::
     pipenv install pyapp-boto3
 
 
-Add `pae.boto3` into the `EXT` list in your applications
-`default_settings.py`.
 
 The default settings will obtain configuration from your environment.
 
@@ -42,29 +40,30 @@ settings file::
     }
 
 
-.. note::
-
-    The URL is a defined by Redis client see the
-    `documentation <https://github.com/andymccurdy/redis-py/blob/master/redis/client.py#L599>`_.
-    In addition to the url any argument that can be provided to `Redis.from_url` can be provided.
-
-
 Usage
 =====
 
-The following example creates both `Connection` and `Session` instances::
+The following example creates an S3 `Resource` instance::
 
-    from pae.redis import get_client
+    from pyapp_ext.boto3 import resource
 
-    # Get connection
-    redis = get_client()
-
-    redis.set("foo")
+    # Get resource
+    s3 = resource("S3")
 
 
 API
 ===
 
-`pae.redis.get_client(default: str = None) -> Redis`
+`pyapp_ext.boto3.get_session(config_name: str = None)`
 
-    Get named `Redis` client instance
+    Get named Boto3 `Session` instance
+
+
+`pyapp_ext.boto3.client(service_name: str, config_name: str = None, **client_args)`
+
+    Get named Boto3 `Client` instance
+
+
+`pyapp_ext.boto3.resource(service_name: str, config_name: str = None, **resource_args)`
+
+    Get named Boto3 `Resource` instance
